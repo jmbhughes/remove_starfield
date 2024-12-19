@@ -240,7 +240,7 @@ def build_starfield_estimate(
             n_good = 0
             stack_sources = []
             for (ymin, ymax, xmin, xmax, output, fname) in p.imap_unordered(
-                    _process_file, args, chunksize=5):
+                    _process_file, args, chunksize=1):
             # for (ymin, ymax, xmin, xmax, output) in map(process_file_percentile, args):
                 pbar_stack.update()
                 if output is not None:
@@ -291,7 +291,7 @@ def build_starfield_estimate(
             # for y, res in enumerate(map(
                     _reduce_strip,
                     args(),
-                    chunksize=20)):
+                    chunksize=1)):
                     # )):
                 pbar_reduce.update()
                 if attribution:
