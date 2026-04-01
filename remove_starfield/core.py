@@ -218,7 +218,7 @@ def build_starfield_estimate(
     # values from every image at every pixel in this chunk of the starfield.
     cutout_shape = (len(files), shape[0], stride)
     
-    with multiprocessing.get_context("forkserver").Pool(processes=n_procs) as p:
+    with multiprocessing.get_context("spawn").Pool(processes=n_procs) as p:
         # Make some memory allocations after the fork
         
         # This is the big honking array that holds a bunch of reprojected
